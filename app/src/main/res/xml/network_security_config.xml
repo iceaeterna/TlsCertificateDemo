@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+    <domain-config>
+        <domain includeSubdomains="true">taobao.com</domain>
+        <pin-set expiration="2020-10-25">
+            <pin digest="SHA-256">ssogq0r2bwpY0PTg2+9kM+CxvHyTzRm2x4dPYgmj4ug=</pin>
+            <!-- host pin wrong -->
+<!--            <pin digest="SHA-256">dsogq0r2bwpY0PTg2+9kM+CxvHyTzRm2x4dPYgmj4ug=</pin>-->
+
+            <!-- backup pin -->
+            <pin digest="SHA-256">IQBnNBEiFuhj+8x6X8XLgh01V9Ic5/V3IRQLNFFc7v4=</pin>
+            <!-- wrong backup pin -->
+<!--            <pin digest="SHA-256">iQBnNBEiFuhj+8x6X8XLgh01V9Ic5/V3IRQLNFFc7v4=</pin>-->
+        </pin-set>
+    </domain-config>
+
+    <domain-config>
+        <domain includeSubdomains="true">jd.com</domain>
+<!--        &lt;!&ndash; 与pin-set一起使用 &ndash;&gt;-->
+<!--        <pin-set expiration="2020-10-28">-->
+<!--            &lt;!&ndash; host pin wrong &ndash;&gt;-->
+<!--&lt;!&ndash;            <pin digest="SHA-256">ssogq0r2bwpY0PTg2+9kM+CxvHyTzRm2x4dPYgmj4ug=</pin>&ndash;&gt;-->
+<!--            <pin digest="SHA-256">yNfW7XcXs6Hz6KQXpF0pT4Nby0EZ/L97t5hWP2G+Xgg=</pin>-->
+<!--        </pin-set>-->
+        <trust-anchors>
+            <certificates src="@raw/jd"/>
+                <!-- wrong cert-->
+<!--            <certificates src="@raw/taobao"/>-->
+<!--            <certificates src="system"/>-->
+        </trust-anchors>
+    </domain-config>
+</network-security-config>
